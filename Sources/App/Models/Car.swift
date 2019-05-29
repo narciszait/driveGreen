@@ -30,7 +30,7 @@ final class CarElement: Codable { //NSObject, Codable, NSCoding
         self.field5 = field5
     }
     
-    func parseFromLocal(){
+    class func parseFromLocal() -> Car {
         let directory = DirectoryConfig.detect()
         let configDir = "Sources/App/Models"
         
@@ -41,10 +41,11 @@ final class CarElement: Codable { //NSObject, Codable, NSCoding
             
             print("cardata \(data)")
             
-            // continue processing
+            return try JSONDecoder().decode(Car.self, from: data)
             
         } catch {
             print(error)
+            return Car()
         }
     }
 }

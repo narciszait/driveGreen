@@ -20,26 +20,30 @@ final class CarController: RouteCollection {
     }
     
     func getAllCars(_ req: Request) throws -> Car { //this is syncronous
-        let directory = DirectoryConfig.detect()
-        let configDir = "Sources/App/Models"
+//        let directory = DirectoryConfig.detect()
+//        let configDir = "Sources/App/Models"
+//
+//       let data = try Data(contentsOf: URL(fileURLWithPath: directory.workDir)
+//                .appendingPathComponent(configDir, isDirectory: true)
+//                .appendingPathComponent("carsJSON.json", isDirectory: false))
+//
+//        return try JSONDecoder().decode(Car.self, from: data)
         
-       let data = try Data(contentsOf: URL(fileURLWithPath: directory.workDir)
-                .appendingPathComponent(configDir, isDirectory: true)
-                .appendingPathComponent("carsJSON.json", isDirectory: false))
-        
-        return try JSONDecoder().decode(Car.self, from: data)
+         return CarElement.parseFromLocal()
     }
     
     func getRandomCars(_ req: Request) throws -> Car {
-        let directory = DirectoryConfig.detect()
-        let configDir = "Sources/App/Models"
+//        let directory = DirectoryConfig.detect()
+//        let configDir = "Sources/App/Models"
+//
+//        let data = try Data(contentsOf: URL(fileURLWithPath: directory.workDir)
+//            .appendingPathComponent(configDir, isDirectory: true)
+//            .appendingPathComponent("carsJSON.json", isDirectory: false))
+//
+//        let carArray = try JSONDecoder().decode(Car.self, from: data)
+//
+//        return carArray.choose(10)
         
-        let data = try Data(contentsOf: URL(fileURLWithPath: directory.workDir)
-            .appendingPathComponent(configDir, isDirectory: true)
-            .appendingPathComponent("carsJSON.json", isDirectory: false))
-        
-        let carArray = try JSONDecoder().decode(Car.self, from: data)
-        
-        return carArray.choose(10)
+         return CarElement.parseFromLocal().choose(10)
     }
 }

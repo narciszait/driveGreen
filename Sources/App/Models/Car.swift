@@ -11,8 +11,9 @@ import Vapor
 typealias Car = [CarElement]
 
 final class CarElement: Codable { //NSObject, Codable, NSCoding
-    let latitude, longitude, batteryPercentage, interestInTheCar: String
-    let field5: Field5
+    var latitude, longitude, batteryPercentage, interestInTheCar: String
+    var field5: Field5
+    var id: Int?
     
     enum CodingKeys: String, CodingKey {
         case latitude = "Latitude"

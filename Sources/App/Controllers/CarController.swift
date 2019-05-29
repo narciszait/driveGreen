@@ -15,6 +15,7 @@ final class CarController: RouteCollection {
         let tokenProtected = carsRoute.grouped(tokenAuthMiddleware, guardAuthMiddleware)
         tokenProtected.get(use: getAllCars)
         tokenProtected.get("random", use: getRandomCars)
+        tokenProtected.get("random", Int.parameter, use: getNRandomCars)
         
 //        carsRoute.get("random", use: getRandomCars)
     }
@@ -25,5 +26,9 @@ final class CarController: RouteCollection {
     
     func getRandomCars(_ req: Request) throws -> Car {        
          return CarElement.parseFromLocal().choose(5)
+    }
+    
+    func getNRandomCars(_ req: Request) throws -> Car {
+        return try CarElement.parseFromLocal().choose(req.parameters.next(Int.self))
     }
 }

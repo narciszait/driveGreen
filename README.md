@@ -1,20 +1,22 @@
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/1342803/36623515-7293b4ec-18d3-11e8-85ab-4e2f8fb38fbd.png" width="320" alt="API Template">
-    <br>
-    <br>
-    <a href="http://docs.vapor.codes/3.0/">
-        <img src="http://img.shields.io/badge/read_the-docs-2196f3.svg" alt="Documentation">
-    </a>
-    <a href="https://discord.gg/vapor">
-        <img src="https://img.shields.io/discord/431917998102675485.svg" alt="Team Chat">
-    </a>
-    <a href="LICENSE">
-        <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
-    </a>
-    <a href="https://circleci.com/gh/vapor/api-template">
-        <img src="https://circleci.com/gh/vapor/api-template.svg?style=shield" alt="Continuous Integration">
-    </a>
-    <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-4.1-brightgreen.svg" alt="Swift 4.1">
-    </a>
-</p>
+## DriveG Vapor server
+
+Make sure to have Xcode installed. It can be found in the macOS App Store. **After Xcode is installed, make sure to run it at least once and install the Command Line Tools.**
+
+Run the following script to make sure Vapor can be installed: `eval "$(curl -sL check.vapor.sh)"`
+
+Install **Homebrew**: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+After **Homebrew** is installed, run the following commands in **Terminal**: 
+`brew tap vapor/homebrew-tap`
+
+`brew update` 
+
+`brew install vapor`
+
+Navigate to the Vapor directory and run `vapor update -y`
+
+This will fetch all the dependencies, generate a new Xcode project and open the project in Xcode. This will take some time.
+
+In Xcode, make sure to select the **Run** scheme on your Mac and then press the big **Play** button.
+
+The Vapor server will launch and it will be accessible at `http://localhost:8080`

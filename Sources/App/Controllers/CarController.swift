@@ -24,11 +24,16 @@ final class CarController: RouteCollection {
          return CarElement.parseFromLocal()
     }
     
-    func getRandomCars(_ req: Request) throws -> Car {        
-         return CarElement.parseFromLocal().choose(5)
+    func getRandomCars(_ req: Request) throws -> Car {
+         var shuffledArray = CarElement.parseFromLocal()
+         return shuffledArray.shuffle()
     }
     
     func getNRandomCars(_ req: Request) throws -> Car {
-        return try CarElement.parseFromLocal().choose(req.parameters.next(Int.self))
+        var shuffledArray = CarElement.parseFromLocal()
+        shuffledArray = shuffledArray.shuffle()
+//        var slicedArray = shuffledArray.prefix(req.parameters.next(Int.self))
+//        return try CarElement.parseFromLocal().choose(req.parameters.next(Int.self))
+        return try Array(shuffledArray.prefix(req.parameters.next(Int.self)))
     }
 }
